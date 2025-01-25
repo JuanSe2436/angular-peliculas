@@ -9,11 +9,13 @@
 
 <h2>En cines</h2>
 
-<app-listado-peliculas></app-listado-peliculas>
+<app-listado-peliculas [peliculas]="peliculasEnCines"></app-listado-peliculas>
 
 <h2>Proximos estrenos</h2>
 
-<app-listado-peliculas></app-listado-peliculas>
+<app-listado-peliculas
+  [peliculas]="peliculasProximosEstrenos"
+></app-listado-peliculas>
 
 <!-- <div *ngIf="!peliculas"> IMPLEMENTACION DEL ngIf
   <img src="https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif" />

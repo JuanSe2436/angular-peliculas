@@ -1,5 +1,6 @@
 import { CurrencyPipe, DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, input, OnInit } from '@angular/core';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-listado-peliculas',
@@ -8,58 +9,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './listado-peliculas.component.css',
 })
 export class ListadoPeliculasComponent implements OnInit {
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.peliculas = [
-        {
-          titulo: 'Inside Out 2',
-          fechaLanzamiento: new Date(),
-          precio: 1400.99,
-          poster:
-            'https://upload.wikimedia.org/wikipedia/en/f/f7/Inside_Out_2_poster.jpg?20240514232832',
-        },
-        {
-          titulo: 'Moana 2',
-          fechaLanzamiento: new Date('2016-05-03'),
-          precio: 300.99,
-          poster:
-            'https://upload.wikimedia.org/wikipedia/en/7/73/Moana_2_poster.jpg',
-        },
-        {
-          titulo: 'Bad Boys: Ride or Die',
-          fechaLanzamiento: new Date('2016-05-03'),
-          precio: 300.99,
-          poster:
-            'https://upload.wikimedia.org/wikipedia/en/8/8b/Bad_Boys_Ride_or_Die_%282024%29_poster.jpg',
-        },
-        {
-          titulo: 'Deadpool & Wolverine',
-          fechaLanzamiento: new Date('2016-05-03'),
-          precio: 300.99,
-          poster:
-            'https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Deadpool_%26_Wolverine_poster.jpg/220px-Deadpool_%26_Wolverine_poster.jpg',
-        },
-        {
-          titulo: 'Oppenheimer',
-          fechaLanzamiento: new Date('2016-05-03'),
-          precio: 300.99,
-          poster:
-            'https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Oppenheimer_%28film%29.jpg/220px-Oppenheimer_%28film%29.jpg',
-        },
-        {
-          titulo: 'The Flash',
-          fechaLanzamiento: new Date('2016-05-03'),
-          precio: 300.99,
-          poster:
-            'https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/The_Flash_%28film%29_poster.jpg/220px-The_Flash_%28film%29_poster.jpg',
-        },
-      ];
-    }, 2000);
-  }
+
+  @Input({ required: true })
+  peliculas!: any[];
+
+
   title = 'angular-peliculas';
   apellido = 'Mosquera';
   edad = 23;
-  peliculas!: any[];
+
+  ngOnInit(): void {
+
+  }
+
+  agregarPelicula() {
+    this.peliculas.push({
+      titulo: 'Inception',
+      fechaLansamiento: '2025-01-29',
+      precio: 500
+    })
+  }
+
+  removerPelicula(pelicula: any) {
+    const indice = this.peliculas.findIndex((peliculaActual: any) => peliculaActual.titulo === pelicula.titulo);
+    //Esto se usa para borrar la pelicula
+    this.peliculas.splice(indice, 1);
+  }
+
   duplicarNumero(valor: number): number {
     return valor * 2;
   }
