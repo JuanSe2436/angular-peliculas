@@ -1,35 +1,55 @@
-<p>Hola mundo</p>
+<!-- <p>Hola mundo</p>
 <p>{{ title }}</p>
 
 <p>El apellido de papisebas es {{ apellido }} y su edad es {{ edad }}</p>
 
 <p>La suma de 2 y 2 es: {{ 2 + 2 }}</p>
 
-<p>El doble de 4 es: {{ duplicarNumero(4) }}</p>
+<p>El doble de 4 es: {{ duplicarNumero(4) }}</p> -->
 
-<h2>Datos de la pelicula</h2>
+<h2>En cines</h2>
 
-<h4>Implementacion clasica con *ngFor</h4>
+<app-listado-peliculas></app-listado-peliculas>
 
-<div *ngFor="let pelicula of peliculas; let indice = index">
-  <p>{{ indice }}) Pelicula: {{ pelicula.titulo | uppercase }}</p>
-  <p>Fecha: {{ pelicula.fechaLanzamiento | date: 'YYYY-MM-dd' }}</p>
-  <p>Precio: {{ pelicula.precio | currency }}</p>
+<h2>Proximos estrenos</h2>
+
+<app-listado-peliculas></app-listado-peliculas>
+
+<!-- <div *ngIf="!peliculas"> IMPLEMENTACION DEL ngIf
+  <img src="https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif" />
+</div>
+<div *ngIf="peliculas?.length ===0">
+  <p>No hay elementos para mostrar</p>
 </div>
 
-<h4>Implementacion moderna con For</h4>
-@for (pelicula of peliculas; track $index) {
-<div class="contenedor-pelicula">
-  <div style="display: flex; flex-direction: row; gap:10px">
-    <div>
-      <img [src]="pelicula.poster" width="169" height="250">
-    </div>
-    <div>
-      <p>{{ $index }}) Pelicula: {{ pelicula.titulo | uppercase }}</p>
-      <p>Fecha: {{ pelicula.fechaLanzamiento | date: 'YYYY-MM-dd' }}</p>
-      <p>Precio: {{ pelicula.precio | currency }}</p>
+<div *ngIf="peliculas && peliculas.length > 0">
+  <h4>Implementacion clasica con *ngFor</h4>
+
+  <div *ngFor="let pelicula of peliculas; let indice = index">
+    <p>{{ indice }}) Pelicula: {{ pelicula.titulo | uppercase }}</p>
+    <p>Fecha: {{ pelicula.fechaLanzamiento | date : "YYYY-MM-dd" }}</p>
+    <p>Precio: {{ pelicula.precio | currency }}</p>
+  </div>
+
+  <h4>Implementacion moderna con For</h4>
+  @for (pelicula of peliculas; track $index) {
+  <div class="contenedor-pelicula">
+    <div style="display: flex; flex-direction: row; gap: 10px">
+      <div>
+        <img
+          [ngSrc]="pelicula.poster"
+          [priority]="$index === 0"
+          width="169"
+          height="250"
+        />
+      </div>
+      <div>
+        <p>{{ $index }}) Pelicula: {{ pelicula.titulo | uppercase }}</p>
+        <p>Fecha: {{ pelicula.fechaLanzamiento | date : "YYYY-MM-dd" }}</p>
+        <p>Precio: {{ pelicula.precio | currency }}</p>
+      </div>
     </div>
   </div>
+  }
 </div>
-
-}
+-->
