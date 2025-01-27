@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
             'https://upload.wikimedia.org/wikipedia/en/7/73/Moana_2_poster.jpg',
         }
       ];
+
       this.peliculasProximosEstrenos = [
         {
           titulo: 'Bad Boys: Ride or Die',
