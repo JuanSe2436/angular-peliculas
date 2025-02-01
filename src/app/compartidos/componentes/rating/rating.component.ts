@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -20,6 +20,9 @@ export class RatingComponent implements OnInit {
   @Input()
   ratingSeleccionado = 0;
 
+  @Output()
+  votado = new EventEmitter<number>();
+
   ratingAnterior = 0;
 
   manejarMouseEnter(indice: number) {
@@ -35,6 +38,7 @@ export class RatingComponent implements OnInit {
   manejarClick(indice: number) {
     this.ratingSeleccionado = indice + 1;
     this.ratingAnterior = this.ratingSeleccionado;
+    this.votado.emit(this.ratingSeleccionado);
   }
 
 
