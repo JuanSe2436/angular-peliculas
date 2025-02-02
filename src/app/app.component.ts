@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListadoPeliculasComponent } from "./peliculas/listado-peliculas/listado-peliculas.component";
 import { MenuComponent } from "./compartidos/componentes/menu/menu.component";
 import { RatingComponent } from "./compartidos/componentes/rating/rating.component";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,6 @@ import { RatingComponent } from "./compartidos/componentes/rating/rating.compone
 })
 
 export class AppComponent implements OnInit {
-
-
   ngOnInit(): void {
     setTimeout(() => {
       this.peliculasEnCines = [
@@ -69,11 +68,7 @@ export class AppComponent implements OnInit {
 
   peliculasEnCines!: any[];
   peliculasProximosEstrenos!: any[];
-  cargando = true;
 
   procesarVoto(voto: number) {
-    alert(`Calificacion otorgada: ${voto}`);
   }
-
-
 }
