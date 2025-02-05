@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-listado-peliculas',
-  imports: [DatePipe, CurrencyPipe, ListadoGenericoComponent, MatButtonModule, MatIconModule],
+  imports: [ListadoGenericoComponent, MatButtonModule, MatIconModule],
   templateUrl: './listado-peliculas.component.html',
   styleUrl: './listado-peliculas.component.css',
 })

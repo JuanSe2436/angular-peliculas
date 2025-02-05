@@ -8,16 +8,11 @@
 <p>El doble de 4 es: {{ duplicarNumero(4) }}</p> -->
 
 <app-menu></app-menu>
+
+<h1>Este es un mensaje que estara en cada pagina</h1>
+
 <div class="contenedor">
-  <app-rating [maximoRating]="5" (votado)="procesarVoto($event)"></app-rating>
-
-  <h2>En cines</h2>
-
-  <app-listado-peliculas [peliculas]="peliculasEnCines"></app-listado-peliculas>
-
-  <h2>Proximos estrenos</h2>
-
-  <app-listado-peliculas [peliculas]="peliculasProximosEstrenos"></app-listado-peliculas>
+ <router-outlet></router-outlet>
 </div>
 
 <!-- <div *ngIf="!peliculas"> IMPLEMENTACION DEL ngIf
